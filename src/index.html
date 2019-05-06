@@ -4,9 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> <%= htmlWebpackPlugin.options.title %> </title>
-    <meta name="viewport" content="width=device-width,initial- scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/favicon.ico" />
 </head>
 <body>
 <h3>Welcome to Webpack 4 starter!</h3>
-<img id="webpack-gif" alt="webpack-gif" src="assets/images/webpack.gif">
+
+<h3>Color palette</h3>
+<p>default colors</p>
+<div>
+    <ul>
+        <li style="background: var(--color-red);"></li>
+        <li style="background: var(--color-orange);"></li>
+        <li style="background: var(--color-yellow);"></li>
+        <li style="background: var(--color-blue);"></li>
+        <li style="background: var(--color-green);"></li>
+        <li style="background: var(--color-white); border: 1px solid var(--color-black)"></li>
+        <li style="background: var(--color-black);"></li>
+    </ul>
+</div>
 </html>

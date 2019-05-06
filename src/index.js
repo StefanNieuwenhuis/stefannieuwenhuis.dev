@@ -1,7 +1,6 @@
 import {Header} from './app/header';
 import {Footer} from './app/footer';
-import './style.css';
-import './styles/scss/main.scss';
+import './style.scss';
 
 const header = new Header();
 const footer = new Footer();

@@ -1,3 +1,4 @@
+// config source: https://hackernoon.com/lets-start-with-webpack-4-91a0f1dba02e
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');

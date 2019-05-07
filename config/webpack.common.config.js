@@ -49,7 +49,7 @@ module.exports = {
             }
         }),
         new MiniCssExtractPlugin({
-            filename: 'style.[chunkhash].css'
+            filename: 'styles.[chunkhash].css'
         }),
         new CopyWebpackPlugin([{
             from: './src/assets',

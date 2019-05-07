@@ -12,13 +12,16 @@ li{
 }
 
 html, body{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    
     width: 100%;
     height: 100%;
-display: flex; 
-align-items: center;
-justify-content: center;
+    
     background: var(--color-blue);
 }
+
 .card{
     min-width: 50%;
     font-family: 'Sofia',  cursive;
@@ -29,4 +32,5 @@ justify-content: center;
     background: var(--color-red);
 
     box-shadow: 2px 2px 5px 0px var(--color-black);
+    z-index: 100;
 }

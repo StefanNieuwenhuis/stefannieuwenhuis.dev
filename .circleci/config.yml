@@ -49,7 +49,7 @@ jobs:
         command: npm install --save-dev firebase-tools
     - run:
         name: Generate Firebase token
-        command: firebase login:ci
+        command: ./node_modules/.bin/firebase login:ci
     - run:
         name: Deploy Master to Firebase
         command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN

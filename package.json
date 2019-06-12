@@ -7,8 +7,9 @@
     "build:dev": "cross-env NODE_ENV=development webpack --mode development",
     "build:prod": "cross-env NODE_ENV=production webpack --mode production",
     "start": "webpack-dev-server --mode development",
-    "deploy": "yarn build:prod && firebase deploy",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "firebase deploy",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"Error: no linter specified\" && exit 1"
   },
   "repository": {
     "type": "git",

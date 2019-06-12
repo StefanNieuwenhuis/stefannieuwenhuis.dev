@@ -8,6 +8,7 @@
     "build:prod": "cross-env NODE_ENV=production webpack --mode production",
     "start": "webpack-dev-server --mode development",
     "deploy": "yarn build:prod && firebase deploy",
+    "deploy:ci": "firebase deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

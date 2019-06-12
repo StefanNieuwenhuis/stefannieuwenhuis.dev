@@ -9,6 +9,7 @@
     "start": "webpack-dev-server --mode development",
     "deploy": "firebase deploy",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "e2e": "echo \"Error: no e2e test specified\" && exit 1",
     "lint": "echo \"Error: no linter specified\" && exit 1"
   },
   "repository": {

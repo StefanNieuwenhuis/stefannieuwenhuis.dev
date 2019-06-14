@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
-let browser: any;
-let page: any;
+let browser;
+let page;
 
 describe('Google', () => {
     beforeEach(async () => {

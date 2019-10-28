@@ -1,0 +1,9 @@
+version: 2
+jobs: 
+  unit-tests:
+    docker:
+      - image: circleci/node:8-browsers
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run test

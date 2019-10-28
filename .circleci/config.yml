@@ -1,9 +1,24 @@
 version: 2
-jobs: 
-  unit-tests:
+jobs:
+  build:
     docker:
-      - image: circleci/node:8-browsers
+      - image: 'circleci/node:8'
+    working_directory: '~/project'
+
     steps:
       - checkout
-      - run: npm install
-      - run: npm run test
+      - restore_cache:
+        keys: 
+          - 'v1-dependencies-{{ checksum "package.json" }}'
+          - v1-dependencies-
+      - run: 'yarn'
+      - save_cache: 
+        paths: 
+          - node_modules
+        key: 'v1-dependencies-{{ checksum "package.json" }}'
+      - run: 
+        name: 'Build Project'
+        command: yarn build:prod
+      - run: 
+        name: 'Deploy to Firebase Hosting'
+        command: ./node_modules/.bin/firebase deploy --token=1/U9IboSnnODTBfV6wcdbVmBeZyacL88OD9UeFqs71gb0

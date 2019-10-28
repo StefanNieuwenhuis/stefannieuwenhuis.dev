@@ -17,7 +17,7 @@ const mockedState = {
     }
 };
 
-fdescribe('Posts Selectors', () => {
+describe('Posts Selectors', () => {
     it('should return the loading state', () => {
         expect(PostsSelectors.selectLoadingState.projector(mockedState)).toBeFalsy();
     });

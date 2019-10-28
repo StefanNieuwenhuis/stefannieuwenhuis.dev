@@ -10,6 +10,6 @@ export class FirebaseService {
   constructor(private afs: AngularFirestore) { }
 
   getAllPosts(): Observable<Post[]> {
-    return this.afs.collection<Post>('blog-posts').valueChanges();
+    return this.afs.collection<Post>('blog-posts').valueChanges({ idField: 'id' });
   }
 }

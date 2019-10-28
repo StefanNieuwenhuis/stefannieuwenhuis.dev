@@ -1,12 +1,15 @@
+import { PostsEffects } from './effects';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
-
+import { postsReducer } from './reducer';
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    StoreModule.forFeature('posts', postsReducer),
+    EffectsModule.forFeature([PostsEffects])
   ]
 })
 export class PostsStoreModule { }

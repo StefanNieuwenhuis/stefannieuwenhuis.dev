@@ -1,3 +1,4 @@
+import { EffectsModule } from '@ngrx/effects';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -13,6 +14,7 @@ import { appReducer } from './reducer';
   imports: [
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([]),
     PostsStoreModule
   ]
 })

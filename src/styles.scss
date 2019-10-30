@@ -1,27 +1,4 @@
-@import 'styles/scss/bundle';
-@import url('https://fonts.googleapis.com/css?family=Sofia');
+/* You can add global styles to this file, and also import other style files */
 
-html, body{
-    display: flex; 
-
-    align-items: center;
-    justify-content: center;
-    
-    width: 100%;
-    height: 100%;
-    
-    background: var(--color-blue);
-}
-
-.card{
-    min-width: 50%;
-    font-family: 'Sofia',  cursive;
-    padding: 25px;
-    text-align: center;
-    border-radius: 10px;
-    color: var(--color-white);
-    background: var(--color-red);
-
-    box-shadow: 2px 2px 5px 0px var(--color-black);
-    z-index: 100;
-}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

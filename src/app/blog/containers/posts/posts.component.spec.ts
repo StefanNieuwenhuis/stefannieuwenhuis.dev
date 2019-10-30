@@ -39,7 +39,7 @@ class PostsOverviewStubComponent {
   @Input('posts') posts: Post[];
 }
 
-fdescribe('PostsComponent', () => {
+describe('PostsComponent', () => {
   let component: PostsComponent;
   let fixture: ComponentFixture<PostsComponent>;
 

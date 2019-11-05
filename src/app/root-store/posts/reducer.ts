@@ -5,7 +5,7 @@ import * as PostsActions from './actions';
 export const postsReducer = createReducer(initialState,
     on(
         PostsActions.loadAllPosts,
-        state => ({ ...state, loading: true })
+        state => ({ ...state, loading: true, error: null })
     ),
     on(
         PostsActions.loadAllPostsSuccess,

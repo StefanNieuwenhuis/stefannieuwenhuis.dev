@@ -1,13 +1,15 @@
-
 import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { provideMockStore, MockStore } from '@ngrx/store/testing';
 
-import { cold } from 'jasmine-marbles';
+import { Store } from '@ngrx/store';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+
+import { cold, hot } from 'jasmine-marbles';
 
 import { PostsComponent } from './posts.component';
 import { RootStoreState } from '../../../root-store';
 import { Post } from '../../../models';
+import { PostsSelectors } from '../../../root-store/posts';
 
 
 /**
@@ -42,12 +44,14 @@ class PostsOverviewStubComponent {
 describe('PostsComponent', () => {
   let component: PostsComponent;
   let fixture: ComponentFixture<PostsComponent>;
+  let store: MockStore<RootStoreState.AppState>;
+  let dispatchSpy: jasmine.Spy;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PostsComponent, PostsOverviewStubComponent],
       providers: [
-        provideMockStore({ initialState: postsStateMock }),
+        provideMockStore({ initialState: postsStateMock })
       ]
     })
       .compileComponents();
@@ -56,6 +60,9 @@ describe('PostsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PostsComponent);
     component = fixture.componentInstance;
+    store = TestBed.get(Store);
+    store.setState(postsStateMock);
+    dispatchSpy = spyOn(store, 'dispatch');
     fixture.detectChanges();
   });
 
@@ -63,9 +70,14 @@ describe('PostsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should dispatch an LoadAllPosts Action in ngOnInit lifecycle', () => {
+  it('should load all posts', () => {
     const expected = cold('a', { a: posts });
 
     expect(component.posts$).toBeObservable(expected);
   });
+
+  it('should dispatch a load all posts action', () => {
+    expect(dispatchSpy).toHaveBeenCalledTimes(1);
+  });
+
 });

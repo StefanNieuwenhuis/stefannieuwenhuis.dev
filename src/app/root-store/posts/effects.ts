@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { of } from 'rxjs';
-import { switchMap, map, catchError } from 'rxjs/operators';
+import { switchMap, map, catchError, tap } from 'rxjs/operators';
 
 import * as PostsActions from './actions';
 
@@ -16,6 +16,7 @@ export class PostsEffects {
     loadAllPosts$ = createEffect(() => this.actions$.pipe(
         ofType(PostsActions.loadAllPosts),
         switchMap(() => this.firebaseService.getAllPosts().pipe(
+            tap((posts: Post[]) => posts.sort((a, b) => b.publishDate.seconds - a.publishDate.seconds)),
             map((posts: Post[]) => PostsActions.loadAllPostsSuccess({ posts })),
             catchError(error => of(PostsActions.loadAllPostsFailure({ error })))
         ))

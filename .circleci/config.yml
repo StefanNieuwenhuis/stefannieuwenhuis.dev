@@ -7,6 +7,7 @@ jobs:
     - image: circleci/node:10.9.0-browsers
     steps:
     - checkout
+    # Log the current branch
     - run: 
         name: Show current branch
         command: echo ${CIRCLE_BRANCH} 

@@ -14,7 +14,6 @@ jobs:
         name: Show current directory
         command: pwd
     - restore_cache:
-    - restore_cache:
          keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-

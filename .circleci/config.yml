@@ -26,7 +26,7 @@ jobs:
     - run:
         name: Run Unit Tests
         command: yarn test:ci
-    test:
+  build:
     working_directory: ~/project
     docker:
     - image: circleci/node:10.9.0-browsers

@@ -1,12 +1,11 @@
 version: 2
 jobs:
-  build:
+  test:
     working_directory: ~/project
     docker:
     - image: circleci/node:10.9.0-browsers
     steps:
     - checkout
-    # Log the current branch
     - run: 
         name: Show current branch
         command: echo ${CIRCLE_BRANCH} 
@@ -15,38 +14,20 @@ jobs:
         command: pwd
     - restore_cache:
          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-{{ checksum "yarn.lock" }}
           - v1-dependencies-
     - run: 
         name: Install dependencies
         command: yarn
     - save_cache: 
-        key: v1-dependencies-{{ checksum "package.json" }}
+        key: v1-dependencies-{{ checksum "yarn.lock" }}
         paths:
         - node_modules
-  test:
-    working_directory: ~/project
-    docker:
-    - image: circleci/node:10.9.0-browsers
-    steps:
-    - run:
-        name: Show current branch
-        command: echo ${CIRCLE_BRANCH}
-    - run:
-        name: Show current directory
-        command: pwd
-    - restore_cache:
-         keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
     - run:
         name: Run Unit Tests
         command: yarn test
 workflows:
   version: 2
-  build_and_test:
+  test_and_deploy:
     jobs:
-        - build
-        - test:
-            requires:
-                - build
+        - test

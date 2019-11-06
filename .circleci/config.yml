@@ -45,13 +45,9 @@ jobs:
     - run:
         name: Show current directory
         command: pwd
-    - restore_cache:
-         keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
     - run:
-        name: Run Unit Tests
-        command: yarn test
+        name: Show current dir contents
+        command: ls /home/circleci/project
 workflows:
   version: 2
   build_and_test:

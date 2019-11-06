@@ -60,7 +60,26 @@ jobs:
         - package.json
         - firebase.json
         - .firebaserc
-      
+    deploy:
+    working_directory: ~/project
+    docker:
+    - image: circleci/node:10.9.0-browsers
+    steps:
+    - run:
+        name: Show current branch
+        command: echo ${CIRCLE_BRANCH}
+    - run:
+        name: Show current directory
+        command: pwd
+    - restore_cache:
+        key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1
+          }}
+    - run:
+        name: Install Firebase
+        command: npm install --save-dev firebase-tools
+    - run:
+        name: Deploy Master to Firebase
+        command: ./node_modules/.bin/firebase deploy --token=1/U9IboSnnODTBfV6wcdbVmBeZyacL88OD9UeFqs71gb0
 workflows:
   version: 2
   test_build_and_deploy:
@@ -69,3 +88,9 @@ workflows:
         - build:
             requires:
             - test
+        - deploy:
+            requires:
+            - build
+            filters:
+                branches:
+                    only: master

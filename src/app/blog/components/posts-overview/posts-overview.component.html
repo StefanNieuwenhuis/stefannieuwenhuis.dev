@@ -2,7 +2,7 @@
     <section class="section">
         <div class="container">
             <h2 class="title">{{post.title}}</h2>
-            <h3 class="subtitle">Posted on {{post.publishDate.toDate() |date:shortDate}} by Stefan Nieuwenhuis
+            <h3 class="subtitle">Posted on {{post.publishDate.toDate() |date:'shortDate'}} by Stefan Nieuwenhuis
                 <span class="tag is-primary">Web Components</span>
             </h3>
             <div class="content" [innerHTML]="post.body">

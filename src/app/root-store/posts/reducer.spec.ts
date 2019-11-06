@@ -1,3 +1,4 @@
+import { firestore } from 'firebase';
 import { postsReducer } from './reducer';
 import { initialState } from './state';
 import { PostsActions } from '.';
@@ -23,8 +24,8 @@ describe('TicketsReducer', () => {
 
         it('should load all posts successfully', () => {
             const posts: Post[] = [
-                { id: '1', categoryId: null, title: 'A fake title #1', body: 'A fake body #1', publishDate: '22-05-1987' },
-                { id: '2', categoryId: null, title: 'A fake title #2', body: 'A fake body #2', publishDate: '22-05-1987' },
+                { id: '1', categoryId: null, title: 'A fake title #1', body: 'A fake body #1', publishDate: firestore.Timestamp.now() },
+                { id: '2', categoryId: null, title: 'A fake title #2', body: 'A fake body #2', publishDate: firestore.Timestamp.now() },
             ];
             const entities = {
                 1: posts[0],

@@ -19,6 +19,9 @@
       "dom"
     ]
   },
+  "paths": {
+    "@firebase": "node_modules/@firebase"
+  },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true

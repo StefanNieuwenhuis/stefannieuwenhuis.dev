@@ -2,13 +2,13 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { hot, cold } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
+import { firestore } from 'firebase';
 
 import { Post } from '../../models';
 import { PostsActions } from '.';
 import { PostsEffects } from './effects';
 
 import { FirebaseService } from './../../services/firebase.service';
-
 describe('Posts Effects', () => {
     let actions: Observable<any>;
     let effects: PostsEffects;
@@ -31,8 +31,8 @@ describe('Posts Effects', () => {
     describe('Loading all posts', () => {
         it('should return a stream with posts loaded successfull action', () => {
             const posts: Post[] = [
-                { id: '1', categoryId: null, title: 'A fake title #1', body: 'A fake body #1', publishDate: '22-05-1987' },
-                { id: '2', categoryId: null, title: 'A fake title #2', body: 'A fake body #2', publishDate: '22-05-1987' },
+                { id: '1', categoryId: null, title: 'A fake title #1', body: 'A fake body #1', publishDate: firestore.Timestamp.now() },
+                { id: '2', categoryId: null, title: 'A fake title #2', body: 'A fake body #2', publishDate: firestore.Timestamp.now() },
             ];
             const action = PostsActions.loadAllPosts();
             const outcome = PostsActions.loadAllPostsSuccess({ posts });

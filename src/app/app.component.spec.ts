@@ -1,6 +1,14 @@
+import { Component } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+
+@Component({ selector: 'app-header', template: '' })
+class AppHeaderStubComponent { }
+
+@Component({ selector: 'app-footer', template: '' })
+class AppFooterStubComponent {
+}
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -9,7 +17,9 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        AppHeaderStubComponent,
+        AppFooterStubComponent
       ],
     }).compileComponents();
   }));

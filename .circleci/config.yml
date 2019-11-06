@@ -56,7 +56,7 @@ jobs:
         key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1
           }}
         paths:
-        - public
+        - dist
         - package.json
         - firebase.json
         - .firebaserc

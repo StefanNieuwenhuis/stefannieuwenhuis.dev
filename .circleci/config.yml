@@ -35,6 +35,10 @@ jobs:
     - run:
         name: Show current directory
         command: pwd
+    - restore_cache:
+         keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
     - run:
         name: Run Unit Tests
         command: yarn test

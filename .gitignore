@@ -1,4 +1,11 @@
-.DS_Store
+# Project dependencies
+.cache
+node_modules
 
-node_modules/
-dist/
+# Build directory
+public
+
+# Other
+.vscode
+.DS_Store
+yarn-error.log

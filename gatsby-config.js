@@ -17,5 +17,6 @@ module.exports = {
         name: `posts`,
       },
     },
+    `gatsby-theme-material-ui`,
   ],
 };

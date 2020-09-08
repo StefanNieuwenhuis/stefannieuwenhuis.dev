@@ -1,0 +1,30 @@
+{
+  "name": "stefannieuwenhuis.dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gatsby develop -p 1337 -o",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.16",
+    "@mdx-js/react": "^1.6.16",
+    "gatsby": "^2.24.52",
+    "gatsby-plugin-emotion": "^4.3.10",
+    "gatsby-plugin-mdx": "^1.2.37",
+    "gatsby-plugin-postcss": "^2.3.11",
+    "gatsby-source-filesystem": "^2.3.27",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
+    "tailwindcss": "^1.7.6",
+    "twin.macro": "^1.8.0"
+  }
+}
